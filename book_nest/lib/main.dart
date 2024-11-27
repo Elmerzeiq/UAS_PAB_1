@@ -1,20 +1,23 @@
+import 'package:book_nest/screens/register_screen.dart';
 import 'package:flutter/material.dart';
+import 'screens/login_screen.dart'; // Import halaman Login
 
 void main() {
-  runApp(const MainApp());
+  runApp(const BookNestApp());
 }
 
-class MainApp extends StatelessWidget {
-  const MainApp({super.key});
+class BookNestApp extends StatelessWidget {
+  const BookNestApp({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: Scaffold(
-        body: Center(
-          child: Text('Hello World!'),
-        ),
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      title: 'Book Nest',
+      theme: ThemeData(
+        primarySwatch: Colors.teal,
       ),
+      home: const RegisterScreen(), // Halaman awal adalah LoginScreen
     );
   }
 }

@@ -1,58 +1,50 @@
 import 'package:flutter/material.dart';
-import 'register_screen.dart'; // Import halaman Register
-import 'home_screen.dart'; // Import halaman HomeScreen setelah login berhasil
+import 'login_screen.dart'; // Import halaman Login
 
-class LoginScreen extends StatefulWidget {
-  const LoginScreen({super.key});
+class RegisterScreen extends StatefulWidget {
+  const RegisterScreen({super.key});
 
   @override
-  _LoginScreenState createState() => _LoginScreenState();
+  _RegisterScreenState createState() => _RegisterScreenState();
 }
 
-class _LoginScreenState extends State<LoginScreen> {
-  // Controller untuk input email dan password
+class _RegisterScreenState extends State<RegisterScreen> {
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
+  final TextEditingController _confirmPasswordController =
+      TextEditingController();
 
-  // Fokus untuk setiap input
-  final FocusNode _emailFocusNode = FocusNode();
-  final FocusNode _passwordFocusNode = FocusNode();
-
-  // Fungsi untuk validasi dan login
-  void _login() async {
+  // Fungsi untuk validasi input
+  void _register() {
     final email = _emailController.text.trim();
     final password = _passwordController.text.trim();
+    final confirmPassword = _confirmPasswordController.text.trim();
 
-    if (email.isEmpty || password.isEmpty) {
-      _showSnackbar("Email dan password tidak boleh kosong.");
+    // Validasi input
+    if (email.isEmpty || password.isEmpty || confirmPassword.isEmpty) {
+      _showSnackbar("Semua kolom harus diisi.");
       return;
     }
 
-    // Simulasi operasi asinkron
-    await Future.delayed(const Duration(seconds: 2));
+    if (password != confirmPassword) {
+      _showSnackbar("Password dan konfirmasi password tidak cocok.");
+      return;
+    }
 
-    // Cek apakah widget masih terpasang
-    if (!mounted) return;
-
-    if (email == "admin@booknest.com" && password == "123456") {
+    // Navigasi ke halaman login jika berhasil
+    _showSnackbar("Registrasi berhasil. Silakan login.");
+    Future.delayed(const Duration(seconds: 2), () {
       Navigator.pushReplacement(
         context,
-        MaterialPageRoute(
-          builder: (context) => const HomeScreen(),
-        ),
+        MaterialPageRoute(builder: (context) => const LoginScreen()),
       );
-    } else {
-      _showSnackbar("Email atau password salah.");
-    }
+    });
   }
 
   // Fungsi untuk menampilkan Snackbar
   void _showSnackbar(String message) {
     ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(
-        content: Text(message),
-        duration: const Duration(seconds: 2),
-      ),
+      SnackBar(content: Text(message)),
     );
   }
 
@@ -90,7 +82,6 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
               ),
               const SizedBox(height: 16),
-              // Judul
               const Text(
                 'Book Nest',
                 style: TextStyle(
@@ -100,10 +91,9 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
               ),
               const SizedBox(height: 32),
-              // Input Email
+              // Email Field
               TextField(
                 controller: _emailController,
-                focusNode: _emailFocusNode,
                 keyboardType: TextInputType.emailAddress,
                 decoration: InputDecoration(
                   filled: true,
@@ -115,15 +105,11 @@ class _LoginScreenState extends State<LoginScreen> {
                     borderSide: BorderSide.none,
                   ),
                 ),
-                onEditingComplete: () {
-                  FocusScope.of(context).requestFocus(_passwordFocusNode);
-                },
               ),
               const SizedBox(height: 16),
-              // Input Password
+              // Password Field
               TextField(
                 controller: _passwordController,
-                focusNode: _passwordFocusNode,
                 obscureText: true,
                 decoration: InputDecoration(
                   filled: true,
@@ -135,26 +121,26 @@ class _LoginScreenState extends State<LoginScreen> {
                     borderSide: BorderSide.none,
                   ),
                 ),
-                onEditingComplete: _login, // Ketika tekan enter, login
-              ),
-              const SizedBox(height: 24),
-              // Tombol Login
-              ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.orange,
-                  minimumSize: const Size(double.infinity, 50),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(8.0),
-                  ),
-                ),
-                onPressed: _login,
-                child: const Text(
-                  'LOGIN',
-                  style: TextStyle(fontSize: 16),
-                ),
               ),
               const SizedBox(height: 16),
-              // Tombol Register
+              // Confirm Password Field
+              TextField(
+                controller: _confirmPasswordController,
+                obscureText: true,
+                decoration: InputDecoration(
+                  filled: true,
+                  fillColor: Colors.white,
+                  hintText: 'Confirm Password',
+                  prefixIcon:
+                      const Icon(Icons.lock_outline, color: Colors.teal),
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(8.0),
+                    borderSide: BorderSide.none,
+                  ),
+                ),
+              ),
+              const SizedBox(height: 24),
+              // Register Button
               ElevatedButton(
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.green,
@@ -163,20 +149,15 @@ class _LoginScreenState extends State<LoginScreen> {
                     borderRadius: BorderRadius.circular(8.0),
                   ),
                 ),
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => const RegisterScreen(),
-                    ),
-                  );
-                },
+                onPressed: _register,
                 child: const Text(
                   'REGISTER',
-                  style: TextStyle(fontSize: 16),
+                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
                 ),
               ),
               const SizedBox(height: 16),
+              // Spacer untuk mengisi ruang
+              const Spacer(),
             ],
           ),
         ),
