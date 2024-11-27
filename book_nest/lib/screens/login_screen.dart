@@ -14,10 +14,6 @@ class _LoginScreenState extends State<LoginScreen> {
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
 
-  // Fokus untuk setiap input
-  final FocusNode _emailFocusNode = FocusNode();
-  final FocusNode _passwordFocusNode = FocusNode();
-
   // Fungsi untuk validasi dan login
   void _login() async {
     final email = _emailController.text.trim();
@@ -31,18 +27,18 @@ class _LoginScreenState extends State<LoginScreen> {
     // Simulasi operasi asinkron
     await Future.delayed(const Duration(seconds: 2));
 
-    // Cek apakah widget masih terpasang
-    if (!mounted) return;
-
-    if (email == "admin@booknest.com" && password == "123456") {
-      Navigator.pushReplacement(
-        context,
-        MaterialPageRoute(
-          builder: (context) => const HomeScreen(),
-        ),
-      );
-    } else {
-      _showSnackbar("Email atau password salah.");
+    // Cek apakah widget masih terpasang sebelum menggunakan BuildContext
+    if (mounted) {
+      if (email == "admin@booknest.com" && password == "123456") {
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(
+            builder: (context) => const HomeScreen(),
+          ),
+        );
+      } else {
+        _showSnackbar("Email atau password salah.");
+      }
     }
   }
 
@@ -54,6 +50,14 @@ class _LoginScreenState extends State<LoginScreen> {
         duration: const Duration(seconds: 2),
       ),
     );
+  }
+
+  @override
+  void dispose() {
+    // Dispose controller ketika tidak digunakan lagi
+    _emailController.dispose();
+    _passwordController.dispose();
+    super.dispose();
   }
 
   @override
@@ -103,7 +107,6 @@ class _LoginScreenState extends State<LoginScreen> {
               // Input Email
               TextField(
                 controller: _emailController,
-                focusNode: _emailFocusNode,
                 keyboardType: TextInputType.emailAddress,
                 decoration: InputDecoration(
                   filled: true,
@@ -116,14 +119,13 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                 ),
                 onEditingComplete: () {
-                  FocusScope.of(context).requestFocus(_passwordFocusNode);
+                  FocusScope.of(context).nextFocus(); // Pindah ke password
                 },
               ),
               const SizedBox(height: 16),
               // Input Password
               TextField(
                 controller: _passwordController,
-                focusNode: _passwordFocusNode,
                 obscureText: true,
                 decoration: InputDecoration(
                   filled: true,

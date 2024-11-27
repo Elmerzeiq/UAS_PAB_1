@@ -1,6 +1,5 @@
-import 'package:book_nest/screens/register_screen.dart';
+import 'package:book_nest/screens/login_screen.dart'; // Import halaman Login
 import 'package:flutter/material.dart';
-import 'screens/login_screen.dart'; // Import halaman Login
 
 void main() {
   runApp(const BookNestApp());
@@ -17,7 +16,7 @@ class BookNestApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.teal,
       ),
-      home: const RegisterScreen(), // Halaman awal adalah LoginScreen
+      home: const LoginScreen(), // Halaman awal adalah LoginScreen
     );
   }
 }
