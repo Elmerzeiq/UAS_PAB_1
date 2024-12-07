@@ -1,22 +1,33 @@
-import 'package:book_nest/screens/login_screen.dart'; // Import halaman Login
 import 'package:flutter/material.dart';
+import 'package:book_nest/screens/home_screen.dart';
+import 'package:book_nest/screens/login_screen.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
-void main() {
-  runApp(const BookNestApp());
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  SharedPreferences prefs = await SharedPreferences.getInstance();
+
+  bool isLoggedIn = prefs.getBool('isLoggedIn') ?? false;
+  runApp(MainApp(
+    isLoggedIn: isLoggedIn,
+  ));
 }
 
-class BookNestApp extends StatelessWidget {
-  const BookNestApp({super.key});
+class MainApp extends StatelessWidget {
+  final bool isLoggedIn;
+  const MainApp({super.key, required this.isLoggedIn});
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Book Nest',
-      theme: ThemeData(
-        primarySwatch: Colors.teal,
-      ),
-      home: const LoginScreen(), // Halaman awal adalah LoginScreen
+      title: 'Flutter Login',
+      theme:
+          ThemeData(colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue)),
+      home: isLoggedIn ? const HomeScreen() : const LoginScreen(),
+      routes: {
+        '/login': (context) => const LoginScreen(),
+        '/home': (context) => const HomeScreen()
+      },
     );
   }
 }
