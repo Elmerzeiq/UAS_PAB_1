@@ -25,6 +25,7 @@ class _LoginScreenState extends State<LoginScreen> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
+              // Logo
               SizedBox(
                 width: 150,
                 height: 150,
@@ -35,6 +36,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
               ),
               const SizedBox(height: 16),
+              // Input Email
               TextField(
                 controller: _emailController,
                 decoration: const InputDecoration(
@@ -43,6 +45,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
               ),
               const SizedBox(height: 16),
+              // Input Password
               TextField(
                 controller: _passwordController,
                 decoration: const InputDecoration(
@@ -52,6 +55,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 obscureText: true,
               ),
               const SizedBox(height: 16),
+              // Tombol Login
               ElevatedButton(
                 onPressed: () async {
                   String email = _emailController.text;
@@ -73,7 +77,8 @@ class _LoginScreenState extends State<LoginScreen> {
                 child: const Text('Login'),
               ),
               const SizedBox(height: 16),
-              OutlinedButton(
+              // Link Register
+              TextButton(
                 onPressed: () {
                   Navigator.push(
                     context,
@@ -81,7 +86,22 @@ class _LoginScreenState extends State<LoginScreen> {
                         builder: (context) => const RegisterScreen()),
                   );
                 },
-                child: const Text('Register'),
+                style: TextButton.styleFrom(
+                  padding: EdgeInsets.zero, // Hilangkan padding bawaan
+                  minimumSize: Size.zero,
+                  tapTargetSize:
+                      MaterialTapTargetSize.shrinkWrap, // Kecilkan area klik
+                  alignment: Alignment.centerLeft, // Posisi teks kiri
+                ),
+                child: const Text(
+                  'Belum punya akun? Register',
+                  style: TextStyle(
+                    fontSize: 12, // Ukuran font lebih kecil
+                    color: Colors.blue, // Warna biru seperti link
+                    decoration:
+                        TextDecoration.underline, // Garis bawah seperti link
+                  ),
+                ),
               ),
             ],
           ),
