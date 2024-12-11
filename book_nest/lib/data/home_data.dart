@@ -196,4 +196,19 @@ var homeList = [
       'https://images.pexels.com/photos/210620/pexels-photo-210620.jpeg',
     ],
   ),
+  Home(
+    name: 'Pengantar Sistem Informasi',
+    location: 'Jakarta, Indonesia',
+    description:
+        'Buku ini sangat diperlukan sebagai referensi bagi mahasiswa dan dosen mengenai materi mata kuliah Pengenalan Sistem Informasi, dan diharapkan dapat membantu proses belajar mengajar di STMIK Pringsewu. Buku ini dapat terbit berkat bantuan dan dukungan dari berbagai pihak khususnya perguruan tinggi STMIK Pringsewu. Oleh karena itu, penulis mengucapkan terima kasih yang tak terhingga kepada keluarga, seluruh civitas STMIK Pringsewu yang telah memberikan dukungan penuh kepada penulis.',
+    built: '2000',
+    type: 'Museum',
+    imageAsset: 'images/pengantarSI.jpg',
+    imageUrls: [
+      'https://images.pexels.com/photos/417173/pexels-photo-417173.jpeg',
+      'https://images.pexels.com/photos/417174/pexels-photo-417174.jpeg',
+      'https://images.pexels.com/photos/417175/pexels-photo-417175.jpeg',
+      'https://images.pexels.com/photos/417176/pexels-photo-417176.jpeg',
+    ],
+  ),
 ];
