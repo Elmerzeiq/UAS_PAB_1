@@ -8,6 +8,7 @@ class RegisterScreen extends StatefulWidget {
 }
 
 class _RegisterScreenState extends State<RegisterScreen> {
+  final TextEditingController _username = TextEditingController();
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
   final TextEditingController _confirmPasswordController =
@@ -25,12 +26,29 @@ class _RegisterScreenState extends State<RegisterScreen> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               const SizedBox(height: 16),
+              // Username Field
+              TextField(
+                controller: _username,
+                decoration: const InputDecoration(
+                  border: OutlineInputBorder(),
+                  labelText: 'Username',
+                  contentPadding: EdgeInsets.symmetric(
+                    vertical: 10, // Tinggi field lebih kecil
+                    horizontal: 12, // Ruang horizontal
+                  ),
+                ),
+              ),
+              const SizedBox(height: 16),
               // Email Field
               TextField(
                 controller: _emailController,
                 decoration: const InputDecoration(
                   border: OutlineInputBorder(),
                   labelText: 'Email',
+                  contentPadding: EdgeInsets.symmetric(
+                    vertical: 10, // Tinggi field lebih kecil
+                    horizontal: 12,
+                  ),
                 ),
               ),
               const SizedBox(height: 16),
@@ -41,6 +59,10 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 decoration: const InputDecoration(
                   border: OutlineInputBorder(),
                   labelText: 'Password',
+                  contentPadding: EdgeInsets.symmetric(
+                    vertical: 10,
+                    horizontal: 12,
+                  ),
                 ),
               ),
               const SizedBox(height: 16),
@@ -51,6 +73,10 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 decoration: const InputDecoration(
                   border: OutlineInputBorder(),
                   labelText: 'Confirm Password',
+                  contentPadding: EdgeInsets.symmetric(
+                    vertical: 10,
+                    horizontal: 12,
+                  ),
                 ),
               ),
               const SizedBox(height: 16),

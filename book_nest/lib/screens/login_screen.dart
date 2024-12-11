@@ -93,13 +93,22 @@ class _LoginScreenState extends State<LoginScreen> {
                       MaterialTapTargetSize.shrinkWrap, // Kecilkan area klik
                   alignment: Alignment.centerLeft, // Posisi teks kiri
                 ),
-                child: const Text(
-                  'Belum punya akun? Register',
-                  style: TextStyle(
-                    fontSize: 12, // Ukuran font lebih kecil
-                    color: Colors.blue, // Warna biru seperti link
-                    decoration:
-                        TextDecoration.underline, // Garis bawah seperti link
+                child: RichText(
+                  text: const TextSpan(
+                    text: 'Belum punya akun? ', // Teks pertama (warna hitam)
+                    style: TextStyle(
+                      fontSize: 12,
+                      color: Colors.black, // Warna hitam
+                    ),
+                    children: [
+                      TextSpan(
+                        text: 'Register', // Teks kedua (warna biru)
+                        style: TextStyle(
+                          color: Colors.blue, // Warna biru seperti link
+                          decoration: TextDecoration.underline, // Garis bawah
+                        ),
+                      ),
+                    ],
                   ),
                 ),
               ),
