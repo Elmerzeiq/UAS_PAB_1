@@ -1,18 +1,20 @@
 class Home {
-  final String name;
-  final String location;
+  final String judul;
+  final String penulis;
+  final String isbn;
   final String description;
-  final String built;
-  final String type;
+  final String tahunTerbit;
+  final String genre;
   final String imageAsset;
   final List<String> imageUrls;
 
   Home({
-    required this.name,
-    required this.location,
+    required this.judul,
+    required this.penulis,
+    required this.isbn,
     required this.description,
-    required this.built,
-    required this.type,
+    required this.tahunTerbit,
+    required this.genre,
     required this.imageAsset,
     required this.imageUrls,
   });

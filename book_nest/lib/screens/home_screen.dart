@@ -45,6 +45,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   crossAxisCount: 2,
                   crossAxisSpacing: 8,
                   mainAxisSpacing: 8,
+                  childAspectRatio: 1280 / 1962,
                 ),
                 padding: const EdgeInsets.all(8),
                 itemCount: homeList.length,
@@ -66,6 +67,8 @@ class _HomeScreenState extends State<HomeScreen> {
                             child: Image.asset(
                               varHome.imageAsset,
                               fit: BoxFit.cover,
+                              width: 1280,
+                              height: 1962,
                             ),
                           ),
                         ),
@@ -73,7 +76,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         Padding(
                           padding: const EdgeInsets.only(left: 16, top: 8),
                           child: Text(
-                            varHome.name,
+                            varHome.judul,
                             style: const TextStyle(
                               fontSize: 16,
                               fontWeight: FontWeight.bold,
@@ -84,7 +87,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         Padding(
                           padding: const EdgeInsets.only(left: 16, bottom: 8),
                           child: Text(
-                            varHome.location,
+                            varHome.penulis,
                             style: const TextStyle(fontSize: 12),
                           ),
                         ),
