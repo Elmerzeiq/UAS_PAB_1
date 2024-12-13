@@ -2,14 +2,18 @@ import 'package:book_nest/models/home.dart';
 
 var homeList = [
   Home(
-    judul: 'Pengantar Manajemen',
+    judul: 'Pengantar Sistem Informasi',
     penulis: 'Elisabet Yunaeti Anggraeni dan Rita Irviani',
     isbn: '9789792962772',
     description:
         'Buku ini memperkenalkan konsep dasar sistem informasi, komponen-komponen sistem informasi, jenis-jenis sistem informasi, dan aplikasi sistem informasi dalam berbagai bidang. ',
     tahunTerbit: '2017',
     genre: 'Edukasi',
-    imageAsset: 'images/pengantarMJ.jpg',
+    editor: 'Erang Risanto',
+    korektor:'Aditya Ari C' ,
+    setter:'Yulius Basuki' ,
+    desainCover: 'Dany Nofianto',
+    imageAsset: 'images/pengantarSI.jpg',
     imageUrls: [
       'https://images.pexels.com/photos/417184/pexels-photo-417184.jpeg',
       'https://images.pexels.com/photos/417185/pexels-photo-417185.jpeg',
@@ -25,6 +29,10 @@ var homeList = [
         'Penulis berusaha menyusun buku ini untuk menguraikan tentang administrasi, baik dalam pengertian administrasi secara sempit maupun pengertian administrasi secara luas.',
     tahunTerbit: '2017',
     genre: 'Edukasi',
+    editor: 'j',
+    korektor: 'h',
+    setter: 'k',
+    desainCover: 'g',
     imageAsset: 'images/ilmuADM.jpg',
     imageUrls: [
       'https://images.pexels.com/photos/417184/pexels-photo-417184.jpeg',
@@ -41,6 +49,10 @@ var homeList = [
         'Buku "Kreatif Informatika" karya Novi Setiani merupakan sebuah karya yang membahas tentang bagaimana menggunakan teknologi informatika untuk meningkatkan kreativitas dan inovasi.',
     tahunTerbit: '2019',
     genre: 'Edukasi',
+    editor: 'Minarni Try Astuti',
+    korektor: 'Iin Boedirahardjo',
+    setter:'Irene Anggraini' ,
+    desainCover:'Wangsari Andi' ,
     imageAsset: 'images/kreatifIF.jpg',
     imageUrls: [
       'https://images.pexels.com/photos/417184/pexels-photo-417184.jpeg',
@@ -57,6 +69,10 @@ var homeList = [
         'Buku "Pengantar Manajemen" karya Dian Wijayanto merupakan sebuah karya yang membahas tentang dasar-dasar manajemen dan prinsip-prinsip yang digunakan dalam mengelola organisasi',
     tahunTerbit: '2012',
     genre: 'Edukasi',
+    editor: ',',
+    korektor: '.',
+    setter: '.',
+    desainCover: '.',
     imageAsset: 'images/pengantarMJ.jpg',
     imageUrls: [
       'https://images.pexels.com/photos/417184/pexels-photo-417184.jpeg',
@@ -65,4 +81,66 @@ var homeList = [
       'https://images.pexels.com/photos/417187/pexels-photo-417187.jpeg',
     ],
   ),
+  Home(
+    judul: 'Dongeng Kancil 3',
+    penulis: 'E. Siswojo',
+    isbn: '9789796554027',
+    description:
+        'Dalam kisah ini, Kancil kembali menghadapi beragam tantangan di hutan bersama teman-temannya. Dikenal karena kecerdasannya, Kancil menggunakan akal dan tipu muslihat untuk menyelesaikan masalah yang melibatkan binatang lain, seperti Buaya yang licik, Harimau yang galak, dan Gajah yang sombong.',
+    tahunTerbit: '1999',
+    genre: 'Dongeng',
+    editor: '.',
+    korektor: '.' ,
+    setter: '.',
+    desainCover: ' ',
+    imageAsset: 'images/kancil.jpg',
+    imageUrls: [
+      'https://images.pexels.com/photos/417184/pexels-photo-417184.jpeg',
+      'https://images.pexels.com/photos/417185/pexels-photo-417185.jpeg',
+      'https://images.pexels.com/photos/417186/pexels-photo-417186.jpeg',
+      'https://images.pexels.com/photos/417187/pexels-photo-417187.jpeg',
+    ],
+  ),
+  Home(
+    judul: 'Si Kancil ',
+    penulis: 'Astri Damayanti',
+    isbn: '9789791475051',
+    description:
+        'Dalam kisah ini, Kancil kembali menghadapi beragam tantangan di hutan bersama teman-temannya. Dikenal karena kecerdasannya, Kancil menggunakan akal dan tipu muslihat untuk menyelesaikan masalah yang melibatkan binatang lain, seperti Buaya yang licik, Harimau yang galak, dan Gajah yang sombong.',
+    tahunTerbit: '2009',
+    genre: 'Dongeng',
+    editor: 'Koeh',
+    korektor: 'Nur Edi Wibowo' ,
+    setter: 'Faturrhida',
+    desainCover: ' Zariyal ',
+    imageAsset: 'images/sikancil.jpg',
+    imageUrls: [
+      'https://images.pexels.com/photos/417184/pexels-photo-417184.jpeg',
+      'https://images.pexels.com/photos/417185/pexels-photo-417185.jpeg',
+      'https://images.pexels.com/photos/417186/pexels-photo-417186.jpeg',
+      'https://images.pexels.com/photos/417187/pexels-photo-417187.jpeg',
+    ],
+  ),
+  Home(
+    judul: 'Audit Sistem Informasi ',
+    penulis: 'I Putu Agus Swastika',
+    isbn: '9789791475051',
+    description:
+        'Dalam kisah ini, Kancil kembali menghadapi beragam tantangan di hutan bersama teman-temannya. Dikenal karena kecerdasannya, Kancil menggunakan akal dan tipu muslihat untuk menyelesaikan masalah yang melibatkan binatang lain, seperti Buaya yang licik, Harimau yang galak, dan Gajah yang sombong.',
+    tahunTerbit: '2009',
+    genre: 'Dongeng',
+    editor: 'Arie Pramesta',
+    korektor: 'Putri Christian' ,
+    setter: 'Yulius Basuki',
+    desainCover: ' Ananditya ',
+    imageAsset: 'images/auditSI.jpg',
+    imageUrls: [
+      'https://images.pexels.com/photos/417184/pexels-photo-417184.jpeg',
+      'https://images.pexels.com/photos/417185/pexels-photo-417185.jpeg',
+      'https://images.pexels.com/photos/417186/pexels-photo-417186.jpeg',
+      'https://images.pexels.com/photos/417187/pexels-photo-417187.jpeg',
+    ],
+  ),
+
+
 ];
