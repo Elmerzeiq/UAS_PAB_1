@@ -28,50 +28,102 @@ class DetailScreen extends StatelessWidget {
                         height: 250,
                       ),
                     ),
-                  )
+                  ),
                   // tombol back
                   Container(
                     margin: const EdgeInsets.all(16),
                     decoration: BoxDecoration(
-                      color: Colors.white.withOpacity(0.5),
-                      shape: BoxShape.circle
-                    ),
+                        color: Colors.white.withOpacity(0.5),
+                        shape: BoxShape.circle),
                     child: IconButton(
-                      onPressed: () { 
-                        Navigator.pop(context);
-                      }, icon: const Icon(Icons.arrow_back)),
+                        onPressed: () {
+                          Navigator.pop(context);
+                        },
+                        icon: const Icon(Icons.arrow_back)),
                   )
                 ],
-              )
+              ),
+              const SizedBox(height: 16),
               //judul dibawahnya image utama
-              Padding(padding: const EdgeInsets.symmetric(horizontal: 16),
-              child: Column(
-                children: [
-                  // judul
-                  Text(
-                    varHome.judul,
-                  style: const TextStyle(
-                    fontSize: 20, FontWeight: FontWeight.bold),
-                  
-                  ),
-                  // info lainnya
-                  Row(
-                    children: [
-                      const Icon(
-                        Icons.location_on,
-                        color: Colors.blue,
-                      ),
-                      const SizedBox(width: 8),
-                      const SizedBox(
-                        width: 70,
-                        child: Text('Lokasi',
-                        style: TextStyle(fontWeight: FontWeight.bold)),
-                      ),
-                      Text(': ${varHome.lokasi}'),
-                    ],
-                  )
-                ],
-              ),)
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 16),
+                child: Column(
+                  children: [
+                    // judul
+                    Text(
+                      varHome.judul,
+                      style: const TextStyle(
+                          fontSize: 20, fontWeight: FontWeight.bold),
+                    ),
+                    const SizedBox(height: 16),
+                    // info lainnya
+                    Row(
+                      children: [
+                        const Icon(
+                          Icons.location_on,
+                          color: Colors.blue,
+                        ),
+                        const SizedBox(width: 8),
+                        const SizedBox(
+                          width: 70,
+                          child: Text('Penulis',
+                              style: TextStyle(fontWeight: FontWeight.bold)),
+                        ),
+                        Text(': ${varHome.penulis}'),
+                      ],
+                    ),
+                    Row(
+                      children: [
+                        const Icon(
+                          Icons.calendar_month,
+                          color: Colors.orange,
+                        ),
+                        const SizedBox(width: 8),
+                        const SizedBox(
+                          width: 70,
+                          child: Text('Tahun Terbit',
+                              style: TextStyle(fontWeight: FontWeight.bold)),
+                        ),
+                        Text(': ${varHome.tahunTerbit}'),
+                      ],
+                    ),
+                    Row(
+                      children: [
+                        const Icon(
+                          Icons.calendar_month,
+                          color: Colors.orange,
+                        ),
+                        const SizedBox(width: 8),
+                        const SizedBox(
+                          width: 70,
+                          child: Text('ISBN',
+                              style: TextStyle(fontWeight: FontWeight.bold)),
+                        ),
+                        Text(': ${varHome.isbn}'),
+                      ],
+                    ),
+                    const SizedBox(height: 16),
+                    Divider(
+                      color: Colors.deepPurple.shade100,
+                      thickness: 1,
+                    ),
+                    const SizedBox(height: 16),
+                    //Deskripsi
+                    Text(
+                      varHome.description,
+                      textAlign: TextAlign.justify,
+                    ),
+                    const SizedBox(height: 16),
+                    Divider(
+                      color: Colors.deepPurple.shade100,
+                      thickness: 1,
+                    ),
+                    const SizedBox(height: 16),
+                  ],
+                ),
+              ),
+              
+
               //--------------tengah-----------
               //--------------bawah------------
             ],
