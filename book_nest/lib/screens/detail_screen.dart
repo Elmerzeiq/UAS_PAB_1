@@ -60,7 +60,7 @@ class DetailScreen extends StatelessWidget {
                     Row(
                       children: [
                         const Icon(
-                          Icons.location_on,
+                          Icons.person,
                           color: Colors.blue,
                         ),
                         const SizedBox(width: 8),
@@ -122,7 +122,6 @@ class DetailScreen extends StatelessWidget {
                   ],
                 ),
               ),
-              
 
               //--------------tengah-----------
               //--------------bawah------------
