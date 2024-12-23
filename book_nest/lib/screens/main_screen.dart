@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:book_nest/screens/home_screen.dart'; // Halaman Home
 import 'package:book_nest/screens/search_screen.dart'; // Halaman Search
-import 'package:book_nest/screens/profile_screen.dart'; // Halaman Profile
+import 'package:book_nest/screens/favorite_screen.dart'; // Halaman Favorite
+// import 'package:book_nest/screens/history_screen.dart'; // Halaman History
+// import 'package:book_nest/screens/profile_screen.dart'; // Halaman Profile
 
 class MainScreen extends StatefulWidget {
   const MainScreen({super.key});
@@ -24,7 +26,9 @@ class _MainScreenState extends State<MainScreen> {
   final List<Widget> _pages = [
     const HomeScreen(), // Halaman Home
     const SearchScreen(), // Halaman Search
-    const ProfileScreen(), // Halaman Profile
+    const FavoriteScreen(), // Halaman Favorite
+    // const HistoryScreen(), // Halaman History
+    // const ProfileScreen(), // Halaman Profile
   ];
 
   @override
@@ -47,14 +51,14 @@ class _MainScreenState extends State<MainScreen> {
             icon: Icon(Icons.favorite),
             label: 'Favorite',
           ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.history),
-            label: 'History',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.person),
-            label: 'Profile',
-          ),
+          // BottomNavigationBarItem(
+          //   icon: Icon(Icons.history),
+          //   label: 'History',
+          // ),
+          // BottomNavigationBarItem(
+          //   icon: Icon(Icons.person),
+          //   label: 'Profile',
+          // ),
         ],
       ),
     );
