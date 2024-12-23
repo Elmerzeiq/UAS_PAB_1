@@ -9,7 +9,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  shared_preferences:
+  shared_preferences: ^2.1.2
   cached_network_image:
 
 dev_dependencies:

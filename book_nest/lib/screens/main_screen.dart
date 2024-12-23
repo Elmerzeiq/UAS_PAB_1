@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:book_nest/screens/home_screen.dart';
-import 'package:book_nest/screens/favorite_screen.dart';
-import 'package:book_nest/screens/history_screen.dart';
+import 'package:book_nest/screens/home_screen.dart'; // Halaman Home
+import 'package:book_nest/screens/search_screen.dart'; // Halaman Search
+import 'package:book_nest/screens/profile_screen.dart'; // Halaman Profile
 
 class MainScreen extends StatefulWidget {
   const MainScreen({super.key});
@@ -11,39 +11,49 @@ class MainScreen extends StatefulWidget {
 }
 
 class _MainScreenState extends State<MainScreen> {
-  int _selectedIndex = 0;
+  int _currentIndex = 0; // Indeks halaman aktif
 
-  final List<Widget> _screens = [
-    const HomeScreen(),
-    const FavoriteScreen(),
-    const HistoryScreen(),
-  ];
-
-  void _onItemTapped(int index) {
+  // Fungsi untuk mengatur perpindahan halaman berdasarkan indeks
+  void _onTabTapped(int index) {
     setState(() {
-      _selectedIndex = index;
+      _currentIndex = index;
     });
   }
+
+  // Daftar halaman yang akan ditampilkan sesuai tab
+  final List<Widget> _pages = [
+    const HomeScreen(), // Halaman Home
+    const SearchScreen(), // Halaman Search
+    const ProfileScreen(), // Halaman Profile
+  ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: _screens[_selectedIndex], // Display the selected screen
+      body: _pages[_currentIndex], // Menampilkan halaman sesuai indeks aktif
       bottomNavigationBar: BottomNavigationBar(
-        currentIndex: _selectedIndex,
-        onTap: _onItemTapped,
-        items: const <BottomNavigationBarItem>[
+        currentIndex: _currentIndex, // Indeks aktif
+        onTap: _onTabTapped, // Callback saat item ditekan
+        items: const [
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
             label: 'Home',
           ),
           BottomNavigationBarItem(
+            icon: Icon(Icons.search),
+            label: 'Search',
+          ),
+          BottomNavigationBarItem(
             icon: Icon(Icons.favorite),
-            label: 'Favorites',
+            label: 'Favorite',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.history),
             label: 'History',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.person),
+            label: 'Profile',
           ),
         ],
       ),

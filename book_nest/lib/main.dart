@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:book_nest/screens/home_screen.dart';
 import 'package:book_nest/screens/login_screen.dart';
 import 'package:book_nest/screens/main_screen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -23,14 +22,12 @@ class MyApp extends StatelessWidget {
       title: 'Book Nest',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
+        useMaterial3: true, // Material Design 3
       ),
-      debugShowCheckedModeBanner: false, // Nonaktifkan banner debug
-      // Halaman awal tergantung pada status login
       home: isLoggedIn ? const MainScreen() : const LoginScreen(),
       routes: {
         '/login': (context) => const LoginScreen(),
-        '/main': (context) => const MainScreen(),
-        '/home': (context) => const HomeScreen(),
+        '/home': (context) => const MainScreen(), // Update rute ke MainScreen
       },
     );
   }
