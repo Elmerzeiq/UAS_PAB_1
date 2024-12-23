@@ -1,6 +1,7 @@
 import 'package:book_nest/models/home.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:url_launcher/url_launcher.dart'; // Import url_launcher
 
 class DetailScreen extends StatefulWidget {
   final Home varHome;
@@ -52,6 +53,22 @@ class _DetailScreenState extends State<DetailScreen> {
     await prefs.setStringList('FavoriteHomes', favoriteHomes);
   }
 
+  // Fungsi untuk membuka URL
+  Future<void> _launchURL(String url) async {
+  if (url.isEmpty) {
+    ScaffoldMessenger.of(context).showSnackBar(
+      const SnackBar(content: Text('URL tidak tersedia')),
+    );
+    return;
+  }
+
+  final Uri uri = Uri.parse(url);
+  if (!await launch(uri)) {  // Use launch method
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(content: Text('Gagal membuka URL: $url')),
+    );
+  }
+}
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -161,6 +178,25 @@ class _DetailScreenState extends State<DetailScreen> {
                     ),
                     const SizedBox(height: 16),
                     Divider(color: Colors.deepPurple.shade100, thickness: 1),
+                    const SizedBox(height: 16),
+
+                    // Tombol Baca Buku
+                    if (widget.varHome.linkJurnal.isNotEmpty)
+                      ElevatedButton.icon(
+                        onPressed: () => _launchURL(widget.varHome.linkJurnal),
+                        icon: const Icon(Icons.book),
+                        label: const Text('Baca Buku'),
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: Colors.blue,
+                          padding: const EdgeInsets.symmetric(
+                            horizontal: 24,
+                            vertical: 12,
+                          ),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(16),
+                          ),
+                        ),
+                      ),
                   ],
                 ),
               ),

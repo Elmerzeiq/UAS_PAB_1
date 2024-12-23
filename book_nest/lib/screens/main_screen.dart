@@ -38,6 +38,10 @@ class _MainScreenState extends State<MainScreen> {
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _currentIndex, // Indeks aktif
         onTap: _onTabTapped, // Callback saat item ditekan
+        showSelectedLabels: true, // Menampilkan label item yang dipilih
+        showUnselectedLabels: true, // Menampilkan label item yang tidak dipilih
+        selectedItemColor: Colors.amber, // Warna item yang dipilih
+        unselectedItemColor: Colors.grey, // Warna item yang tidak dipilih
         items: const [
           BottomNavigationBarItem(
             icon: Icon(Icons.home),

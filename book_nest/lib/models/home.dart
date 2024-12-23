@@ -10,7 +10,7 @@ class Home {
   final String setter;
   final String desainCover;
   final String imageAsset;
-  final List<String> imageUrls;
+  final String linkJurnal;
 
   Home({
     required this.judul,
@@ -24,6 +24,6 @@ class Home {
     required this.setter,
     required this.desainCover,
     required this.imageAsset,
-    required this.imageUrls,
+    required this.linkJurnal,
   });
 }
