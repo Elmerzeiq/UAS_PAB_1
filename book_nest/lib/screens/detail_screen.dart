@@ -38,7 +38,8 @@ class _DetailScreenState extends State<DetailScreen> {
         favoriteHomes.remove(widget.varHome.judul);
         _isFavorite = false;
         ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text('${widget.varHome.judul} removed from favorites')),
+          SnackBar(
+              content: Text('${widget.varHome.judul} removed from favorites')),
         );
       } else {
         // Proses favorite
@@ -55,20 +56,22 @@ class _DetailScreenState extends State<DetailScreen> {
 
   // Fungsi untuk membuka URL
   Future<void> _launchURL(String url) async {
-  if (url.isEmpty) {
-    ScaffoldMessenger.of(context).showSnackBar(
-      const SnackBar(content: Text('URL tidak tersedia')),
-    );
-    return;
+    if (url.isEmpty) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text('URL tidak tersedia')),
+      );
+      return;
+    }
+
+    final Uri uri = Uri.parse(url);
+    if (!await launch(uri.toString())) {
+      // Convert Uri to String
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text('Gagal membuka URL: $url')),
+      );
+    }
   }
 
-  final Uri uri = Uri.parse(url);
-  if (!await launch(uri)) {  // Use launch method
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(content: Text('Gagal membuka URL: $url')),
-    );
-  }
-}
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -81,7 +84,8 @@ class _DetailScreenState extends State<DetailScreen> {
                 children: [
                   // Gambar utama
                   Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 8),
+                    padding:
+                        const EdgeInsets.symmetric(horizontal: 8, vertical: 8),
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(16),
                       child: Image.asset(
@@ -127,7 +131,9 @@ class _DetailScreenState extends State<DetailScreen> {
                         IconButton(
                           onPressed: _toggleFavorite,
                           icon: Icon(
-                            _isFavorite ? Icons.favorite : Icons.favorite_border,
+                            _isFavorite
+                                ? Icons.favorite
+                                : Icons.favorite_border,
                           ),
                           color: _isFavorite ? Colors.red : null,
                         ),
@@ -141,7 +147,8 @@ class _DetailScreenState extends State<DetailScreen> {
                         const SizedBox(width: 8),
                         const SizedBox(
                           width: 70,
-                          child: Text('Penulis', style: TextStyle(fontWeight: FontWeight.bold)),
+                          child: Text('Penulis',
+                              style: TextStyle(fontWeight: FontWeight.bold)),
                         ),
                         Text(': ${widget.varHome.penulis}'),
                       ],
@@ -152,7 +159,8 @@ class _DetailScreenState extends State<DetailScreen> {
                         const SizedBox(width: 8),
                         const SizedBox(
                           width: 70,
-                          child: Text('Tahun Terbit', style: TextStyle(fontWeight: FontWeight.bold)),
+                          child: Text('Tahun Terbit',
+                              style: TextStyle(fontWeight: FontWeight.bold)),
                         ),
                         Text(': ${widget.varHome.tahunTerbit}'),
                       ],
@@ -163,7 +171,8 @@ class _DetailScreenState extends State<DetailScreen> {
                         const SizedBox(width: 8),
                         const SizedBox(
                           width: 70,
-                          child: Text('ISBN', style: TextStyle(fontWeight: FontWeight.bold)),
+                          child: Text('ISBN',
+                              style: TextStyle(fontWeight: FontWeight.bold)),
                         ),
                         Text(': ${widget.varHome.isbn}'),
                       ],
@@ -183,20 +192,27 @@ class _DetailScreenState extends State<DetailScreen> {
                     // Tombol Baca Buku
                     if (widget.varHome.linkJurnal.isNotEmpty)
                       ElevatedButton.icon(
-                        onPressed: () => _launchURL(widget.varHome.linkJurnal),
-                        icon: const Icon(Icons.book),
-                        label: const Text('Baca Buku'),
-                        style: ElevatedButton.styleFrom(
-                          backgroundColor: Colors.blue,
-                          padding: const EdgeInsets.symmetric(
-                            horizontal: 24,
-                            vertical: 12,
-                          ),
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(16),
-                          ),
-                        ),
-                      ),
+  onPressed: () => _launchURL(widget.varHome.linkJurnal),
+  icon: const Icon(Icons.book),
+  label: const Text(
+    'Baca Buku',
+    style: TextStyle(
+      fontWeight: FontWeight.bold,
+      color: Colors.white, // Set text color to white
+    ),
+  ),
+  style: ElevatedButton.styleFrom(
+    backgroundColor: Colors.blue,
+    padding: const EdgeInsets.symmetric(
+      horizontal: 24,
+      vertical: 12,
+    ),
+    shape: RoundedRectangleBorder(
+      borderRadius: BorderRadius.circular(16),
+    ),
+  ),
+),
+
                   ],
                 ),
               ),
