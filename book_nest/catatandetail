@@ -1,7 +1,7 @@
 import 'package:book_nest/models/home.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:url_launcher/url_launcher.dart'; // Import url_launcher
+import 'package:url_launcher/url_launcher.dart';
 
 class DetailScreen extends StatefulWidget {
   final Home varHome;
@@ -44,7 +44,6 @@ class _DetailScreenState extends State<DetailScreen> {
 
     setState(() {
       if (_isFavorite) {
-        // Proses unfavorite
         favoriteHomes.remove(widget.varHome.judul);
         _isFavorite = false;
         ScaffoldMessenger.of(context).showSnackBar(
@@ -52,7 +51,6 @@ class _DetailScreenState extends State<DetailScreen> {
               content: Text('${widget.varHome.judul} removed from favorites')),
         );
       } else {
-        // Proses favorite
         favoriteHomes.add(widget.varHome.judul);
         _isFavorite = true;
         ScaffoldMessenger.of(context).showSnackBar(
@@ -64,7 +62,6 @@ class _DetailScreenState extends State<DetailScreen> {
     await prefs.setStringList('FavoriteHomes', favoriteHomes);
   }
 
-  // Fungsi untuk membuka URL
   Future<void> _launchURL(String url) async {
     if (url.isEmpty) {
       ScaffoldMessenger.of(context).showSnackBar(
@@ -88,10 +85,8 @@ class _DetailScreenState extends State<DetailScreen> {
         child: SingleChildScrollView(
           child: Column(
             children: [
-              // Bagian atas
               Stack(
                 children: [
-                  // Gambar utama
                   Padding(
                     padding:
                         const EdgeInsets.symmetric(horizontal: 8, vertical: 8),
@@ -105,7 +100,6 @@ class _DetailScreenState extends State<DetailScreen> {
                       ),
                     ),
                   ),
-                  // Tombol kembali
                   Container(
                     margin: const EdgeInsets.all(16),
                     decoration: BoxDecoration(
@@ -122,7 +116,6 @@ class _DetailScreenState extends State<DetailScreen> {
                 ],
               ),
               const SizedBox(height: 16),
-              // Judul dan tombol favorit
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 16),
                 child: Column(
@@ -149,63 +142,18 @@ class _DetailScreenState extends State<DetailScreen> {
                       ],
                     ),
                     const SizedBox(height: 16),
-                    // Informasi lainnya
-                    Row(
-                      children: [
-                        const Icon(Icons.person, color: Colors.blue),
-                        const SizedBox(width: 8),
-                        const SizedBox(
-                          width: 70,
-                          child: Text('Penulis',
-                              style: TextStyle(fontWeight: FontWeight.bold)),
-                        ),
-                        Text(': ${widget.varHome.penulis}'),
-                      ],
-                    ),
-                    Row(
-                      children: [
-                        const Icon(Icons.calendar_month, color: Colors.orange),
-                        const SizedBox(width: 8),
-                        const SizedBox(
-                          width: 70,
-                          child: Text('Tahun Terbit',
-                              style: TextStyle(fontWeight: FontWeight.bold)),
-                        ),
-                        Text(': ${widget.varHome.tahunTerbit}'),
-                      ],
-                    ),
-                    Row(
-                      children: [
-                        const Icon(Icons.book, color: Colors.orange),
-                        const SizedBox(width: 8),
-                        const SizedBox(
-                          width: 70,
-                          child: Text('ISBN',
-                              style: TextStyle(fontWeight: FontWeight.bold)),
-                        ),
-                        Text(': ${widget.varHome.isbn}'),
-                      ],
-                    ),
-                    const SizedBox(height: 16),
-                    Divider(color: Colors.deepPurple.shade100, thickness: 1),
-                    const SizedBox(height: 16),
-                    // Deskripsi
                     Text(
                       widget.varHome.description,
                       textAlign: TextAlign.justify,
                     ),
                     const SizedBox(height: 16),
-                    Divider(color: Colors.deepPurple.shade100, thickness: 1),
-                    const SizedBox(height: 16),
-
-                    // Tombol Baca Buku
                     if (widget.varHome.linkJurnal.isNotEmpty)
                       ElevatedButton.icon(
                         onPressed: () async {
                           await _addToHistory(widget.varHome.judul);
                           _launchURL(widget.varHome.linkJurnal);
                         },
-                        icon: const Icon(Icons.book, color: Colors.white),
+                        icon: const Icon(Icons.book),
                         label: const Text(
                           'Baca Buku',
                           style: TextStyle(
