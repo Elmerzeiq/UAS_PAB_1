@@ -24,11 +24,11 @@ class _MainScreenState extends State<MainScreen> {
 
   // Daftar halaman yang akan ditampilkan sesuai tab
   final List<Widget> _pages = [
-    const HomeScreen(), // Halaman Home
-    const SearchScreen(), // Halaman Search
-    const FavoriteScreen(), // Halaman Favorite
-    const HistoryScreen(), // Halaman History
-    const ProfileScreen(), // Halaman Profile
+    HomeScreen(), // Halaman Home
+    SearchScreen(), // Halaman Search
+    FavoriteScreen(), // Halaman Favorite
+    HistoryScreen(), // Halaman History
+    ProfileScreen(), // Halaman Profile
   ];
 
   @override
@@ -68,3 +68,4 @@ class _MainScreenState extends State<MainScreen> {
     );
   }
 }
+
