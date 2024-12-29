@@ -14,7 +14,9 @@ var homeList = [
     setter: 'Yulius Basuki',
     desainCover: 'Dany Nofianto',
     imageAsset: 'images/pengantarSI.jpg',
-    linkJurnal: 'https://www.google.co.id/books/edition/Dongeng_Favorit_si_Kancil/LkD48g32wDwC?hl=en&gbpv=1&dq=dongeng&pg=PP1&printsec=frontcover',
+    linkJurnal:
+        'https://www.google.co.id/books/edition/Dongeng_Favorit_si_Kancil/LkD48g32wDwC?hl=en&gbpv=1&dq=dongeng&pg=PP1&printsec=frontcover',
+    edisi: '',
   ),
   Home(
     judul: 'Ilmu Administrasi',
@@ -29,7 +31,9 @@ var homeList = [
     setter: 'Kurniawan Adi',
     desainCover: 'Gilang Raharjo',
     imageAsset: 'images/ilmuADM.jpg',
-    linkJurnal: 'https://www.google.co.id/books/edition/Dongeng_Favorit_si_Kancil/LkD48g32wDwC?hl=en&gbpv=1&dq=dongeng&pg=PP1&printsec=frontcover',
+    linkJurnal:
+        'https://www.google.co.id/books/edition/Dongeng_Favorit_si_Kancil/LkD48g32wDwC?hl=en&gbpv=1&dq=dongeng&pg=PP1&printsec=frontcover',
+    edisi: '',
   ),
   Home(
     judul: 'Kreatif Informatika',
@@ -44,7 +48,9 @@ var homeList = [
     setter: 'Irene Anggraini',
     desainCover: 'Wangsari Andi',
     imageAsset: 'images/kreatifIF.jpg',
-    linkJurnal: 'https://www.google.co.id/books/edition/Dongeng_Favorit_si_Kancil/LkD48g32wDwC?hl=en&gbpv=1&dq=dongeng&pg=PP1&printsec=frontcover',
+    linkJurnal:
+        'https://www.google.co.id/books/edition/Dongeng_Favorit_si_Kancil/LkD48g32wDwC?hl=en&gbpv=1&dq=dongeng&pg=PP1&printsec=frontcover',
+    edisi: '',
   ),
   Home(
     judul: 'Pengantar Manajemen',
@@ -59,7 +65,9 @@ var homeList = [
     setter: '-',
     desainCover: '-',
     imageAsset: 'images/pengantarMJ.jpg',
-    linkJurnal: 'https://www.google.co.id/books/edition/Dongeng_Favorit_si_Kancil/LkD48g32wDwC?hl=en&gbpv=1&dq=dongeng&pg=PP1&printsec=frontcover',
+    linkJurnal:
+        'https://www.google.co.id/books/edition/Dongeng_Favorit_si_Kancil/LkD48g32wDwC?hl=en&gbpv=1&dq=dongeng&pg=PP1&printsec=frontcover',
+    edisi: '',
   ),
   Home(
     judul: 'Dongeng Kancil 3',
@@ -74,7 +82,9 @@ var homeList = [
     setter: '-',
     desainCover: '-',
     imageAsset: 'images/kancil.jpg',
-    linkJurnal: 'https://www.google.co.id/books/edition/Dongeng_Favorit_si_Kancil/LkD48g32wDwC?hl=en&gbpv=1&dq=dongeng&pg=PP1&printsec=frontcover',
+    linkJurnal:
+        'https://www.google.co.id/books/edition/Dongeng_Favorit_si_Kancil/LkD48g32wDwC?hl=en&gbpv=1&dq=dongeng&pg=PP1&printsec=frontcover',
+    edisi: '',
   ),
   Home(
     judul: 'Si Kancil',
@@ -89,7 +99,9 @@ var homeList = [
     setter: 'Faturrhida',
     desainCover: 'Zariyal',
     imageAsset: 'images/sikancil.jpg',
-    linkJurnal: 'https://www.google.co.id/books/edition/Dongeng_Favorit_si_Kancil/LkD48g32wDwC?hl=en&gbpv=1&dq=dongeng&pg=PP1&printsec=frontcover',
+    linkJurnal:
+        'https://www.google.co.id/books/edition/Dongeng_Favorit_si_Kancil/LkD48g32wDwC?hl=en&gbpv=1&dq=dongeng&pg=PP1&printsec=frontcover',
+    edisi: '',
   ),
   Home(
     judul: 'Audit Sistem Informasi',
@@ -104,6 +116,25 @@ var homeList = [
     setter: 'Yulius Basuki',
     desainCover: 'Ananditya',
     imageAsset: 'images/auditSI.jpg',
-    linkJurnal: 'https://www.google.co.id/books/edition/Dongeng_Favorit_si_Kancil/LkD48g32wDwC?hl=en&gbpv=1&dq=dongeng&pg=PP1&printsec=frontcover',
+    linkJurnal:
+        'https://www.google.co.id/books/edition/Dongeng_Favorit_si_Kancil/LkD48g32wDwC?hl=en&gbpv=1&dq=dongeng&pg=PP1&printsec=frontcover',
+    edisi: '',
+  ),
+  Home(
+    judul: 'A Brief History of Indonesia: Sultans, Spices, and Tsunamis',
+    penulis: 'Tim Hannigan',
+    isbn: '9780804844765',
+    description:
+        'Buku ini mengisahkan sejarah Indonesia yang penuh warna, mulai dari era kerajaan hingga perjuangan kemerdekaan. Penulis memadukan fakta sejarah dengan narasi yang menarik, menjadikannya bacaan yang informatif dan menghibur.',
+    tahunTerbit: '2015',
+    genre: 'Nonfiksi Sejarah',
+    editor: 'Fajar Nugraha',
+    korektor: 'Arini Putri',
+    setter: 'Rizky Pradana',
+    desainCover: 'Citra Ayu',
+    imageAsset: 'images/briefhistory.jpg',
+    linkJurnal:
+        'https://books.google.co.id/books?id=abGHCgAAQBAJ&pg=PA16&source=gbs_toc_r&cad=2#v=onepage&q&f=false',
+    edisi: '',
   ),
 ];

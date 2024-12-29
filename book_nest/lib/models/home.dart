@@ -11,6 +11,7 @@ class Home {
   final String desainCover;
   final String imageAsset;
   final String linkJurnal;
+  final String edisi;
 
   Home({
     required this.judul,
@@ -25,5 +26,6 @@ class Home {
     required this.desainCover,
     required this.imageAsset,
     required this.linkJurnal,
+    required this.edisi,
   });
 }
