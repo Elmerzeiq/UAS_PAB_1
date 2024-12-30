@@ -66,7 +66,7 @@ var homeList = [
     desainCover: 'Feryanto Putra',
     imageAsset: 'images/pengantarMJ.jpg',
     linkJurnal:
-        'https://www.google.co.id/books/edition/Pengantar_Manajemen/c0hODwAAQBAJ?hl=en&gbpv=1&dq=pengantar%20manajemen&pg=PA16&printsec=frontcover',
+        'https://www.google.co.id/books/edition/Pengantar_Manajemen/c0hODwAAQBAJ?hl=en&gbpv=1',
     edisi: '',
   ),
   Home(
