@@ -9,25 +9,30 @@ class SearchScreen extends StatefulWidget {
 }
 
 class _SearchScreenState extends State<SearchScreen> {
-  List<Home> _filteredBooks = [];
+  List<Home> _filteredBooks = []; // Awalnya kosong
   TextEditingController _searchController = TextEditingController();
 
   @override
   void initState() {
     super.initState();
-    _filteredBooks = homeList; // Awalnya menampilkan semua buku
 
     // Tambahkan listener untuk memperbarui hasil pencarian saat teks berubah
     _searchController.addListener(() {
       setState(() {
-        _filteredBooks = homeList.where((book) {
-          return book.judul
-                  .toLowerCase()
-                  .contains(_searchController.text.toLowerCase()) ||
-              book.penulis
-                  .toLowerCase()
-                  .contains(_searchController.text.toLowerCase());
-        }).toList();
+        if (_searchController.text.isEmpty) {
+          // Jika teks pencarian kosong, jangan tampilkan buku
+          _filteredBooks = [];
+        } else {
+          // Filter daftar buku berdasarkan judul atau penulis
+          _filteredBooks = homeList.where((book) {
+            return book.judul
+                    .toLowerCase()
+                    .contains(_searchController.text.toLowerCase()) ||
+                book.penulis
+                    .toLowerCase()
+                    .contains(_searchController.text.toLowerCase());
+          }).toList();
+        }
       });
     });
   }

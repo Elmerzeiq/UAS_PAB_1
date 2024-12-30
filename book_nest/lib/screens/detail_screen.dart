@@ -152,10 +152,10 @@ class _DetailScreenState extends State<DetailScreen> {
                     // Informasi lainnya
                     Row(
                       children: [
-                        const Icon(Icons.person, color: Colors.blue),
+                        const Icon(Icons.person, color: Colors.green),
                         const SizedBox(width: 8),
                         const SizedBox(
-                          width: 70,
+                          width: 100,
                           child: Text('Penulis',
                               style: TextStyle(fontWeight: FontWeight.bold)),
                         ),
@@ -164,10 +164,10 @@ class _DetailScreenState extends State<DetailScreen> {
                     ),
                     Row(
                       children: [
-                        const Icon(Icons.calendar_month, color: Colors.orange),
+                        const Icon(Icons.calendar_month, color: Colors.green),
                         const SizedBox(width: 8),
                         const SizedBox(
-                          width: 70,
+                          width: 100,
                           child: Text('Tahun Terbit',
                               style: TextStyle(fontWeight: FontWeight.bold)),
                         ),
@@ -176,19 +176,94 @@ class _DetailScreenState extends State<DetailScreen> {
                     ),
                     Row(
                       children: [
-                        const Icon(Icons.book, color: Colors.orange),
+                        const Icon(Icons.book, color: Colors.green),
                         const SizedBox(width: 8),
                         const SizedBox(
-                          width: 70,
+                          width: 100,
                           child: Text('ISBN',
                               style: TextStyle(fontWeight: FontWeight.bold)),
                         ),
                         Text(': ${widget.varHome.isbn}'),
                       ],
                     ),
+                    Row(
+                      children: [
+                        const Icon(Icons.edit, color: Colors.green),
+                        const SizedBox(width: 8),
+                        const SizedBox(
+                          width: 100,
+                          child: Text('Editor',
+                              style: TextStyle(fontWeight: FontWeight.bold)),
+                        ),
+                        Text(': ${widget.varHome.editor}'),
+                      ],
+                    ),
+                    Row(
+                      children: [
+                        const Icon(Icons.format_align_left,
+                            color: Colors.green),
+                        const SizedBox(width: 8),
+                        const SizedBox(
+                          width: 100,
+                          child: Text('Setter',
+                              style: TextStyle(fontWeight: FontWeight.bold)),
+                        ),
+                        Text(': ${widget.varHome.setter}'),
+                      ],
+                    ),
+                    Row(
+                      children: [
+                        const Icon(Icons.check_circle, color: Colors.green),
+                        const SizedBox(width: 8),
+                        const SizedBox(
+                          width: 100,
+                          child: Text('Korektor',
+                              style: TextStyle(fontWeight: FontWeight.bold)),
+                        ),
+                        Text(': ${widget.varHome.korektor}'),
+                      ],
+                    ),
+                    Row(
+                      children: [
+                        const Icon(Icons.image, color: Colors.green),
+                        const SizedBox(width: 8),
+                        const SizedBox(
+                          width: 100,
+                          child: Text('Desain Cover',
+                              style: TextStyle(fontWeight: FontWeight.bold)),
+                        ),
+                        Text(': ${widget.varHome.desainCover}'),
+                      ],
+                    ),
+                    Row(
+                      children: [
+                        const Icon(Icons.library_books, color: Colors.green),
+                        const SizedBox(width: 8),
+                        const SizedBox(
+                          width: 100,
+                          child: Text('Genre',
+                              style: TextStyle(fontWeight: FontWeight.bold)),
+                        ),
+                        Text(': ${widget.varHome.genre}'),
+                      ],
+                    ),
+                    Row(
+                      children: [
+                        const Icon(Icons.label, color: Colors.green),
+                        const SizedBox(width: 8),
+                        const SizedBox(
+                          width: 100,
+                          child: Text('Edisi',
+                              style: TextStyle(fontWeight: FontWeight.bold)),
+                        ),
+                        Text(': ${widget.varHome.edisi}'),
+                      ],
+                    ),
+
                     const SizedBox(height: 16),
                     Divider(color: Colors.deepPurple.shade100, thickness: 1),
                     const SizedBox(height: 16),
+
                     // Deskripsi
                     Text(
                       widget.varHome.description,
@@ -214,7 +289,7 @@ class _DetailScreenState extends State<DetailScreen> {
                           ),
                         ),
                         style: ElevatedButton.styleFrom(
-                          backgroundColor: Colors.blue,
+                          backgroundColor: Colors.green,
                           padding: const EdgeInsets.symmetric(
                             horizontal: 24,
                             vertical: 12,
