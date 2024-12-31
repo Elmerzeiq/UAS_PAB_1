@@ -1,64 +1,73 @@
 import 'package:flutter/material.dart';
-import 'package:book_nest/data/user_data.dart'; // Import file user_data.dart
-import 'package:book_nest/models/user.dart'; // Import file user.dart
+import 'package:shared_preferences/shared_preferences.dart';
 
-class ProfileScreen extends StatelessWidget {
+class ProfileScreen extends StatefulWidget {
+  @override
+  
+  _ProfileScreenState createState() => _ProfileScreenState();
+}
+
+class _ProfileScreenState extends State<ProfileScreen> {
+  // Fungsi logout yang akan memanggil Navigator untuk menuju halaman login
+  Future<void> _logout(BuildContext context) async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    await prefs.remove('isLoggedIn'); // Menghapus data login
+    await prefs.remove('email'); // Menghapus data email
+
+    // Setelah logout, arahkan ke halaman login
+    Navigator.pushReplacementNamed(context, '/login');
+  }
+
   @override
   Widget build(BuildContext context) {
-    // Jika tidak ada user yang login, tampilkan pesan
-    if (currentUser == null) {
-      return Scaffold(
-        appBar: AppBar(
-          title: Text('Profile'),
-        ),
-        body: Center(
-          child: Text('No user is logged in'),
-        ),
-      );
-    }
-
-    // Ambil data user yang sedang login
-    User user = currentUser!;
-
     return Scaffold(
       appBar: AppBar(
         title: Text('Profile'),
         actions: [
+          // Tombol logout di AppBar
           IconButton(
-            icon: Icon(Icons.logout),
-            onPressed: () {
-              // Fungsi log out, bisa set currentUser ke null
-              currentUser = null;
-              Navigator.pop(context); // Keluar dari halaman profile
-            },
+            icon: Icon(Icons.exit_to_app),
+            onPressed: () => _logout(context),
           ),
         ],
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
+            // Foto Profil dari folder images
             CircleAvatar(
               radius: 50,
-              backgroundImage: AssetImage(user.image),
+              backgroundImage: AssetImage('images/sikancil.jpg'), // Gambar dari folder images
             ),
             SizedBox(height: 20),
-            Text('Username: ${user.username}', style: TextStyle(fontSize: 18)),
+            // Menampilkan teks statis untuk informasi pengguna
+            Text(
+              'Username: Admin_Booknest',
+              style: TextStyle(fontSize: 18),
+            ),
             SizedBox(height: 10),
-            Text('Email: ${user.email}', style: TextStyle(fontSize: 18)),
+            Text(
+              'Email: adminbooknest@gmail.com',
+              style: TextStyle(fontSize: 18),
+            ),
             SizedBox(height: 10),
-            Text('Phone: ${user.phone}', style: TextStyle(fontSize: 18)),
+            Text(
+              'Phone: 0822-8075-9989',
+              style: TextStyle(fontSize: 18),
+            ),
             SizedBox(height: 10),
-            Text('Address: ${user.address}', style: TextStyle(fontSize: 18)),
+            Text(
+              'Address: Jl. Rajawali',
+              style: TextStyle(fontSize: 18),
+            ),
             SizedBox(height: 20),
+            // Tombol Logout di bawah
             ElevatedButton(
-              onPressed: () {
-                // Fungsi untuk log out, bisa juga mempengaruhi currentUser
-                currentUser = null;
-                Navigator.pop(context); // Keluar ke halaman sebelumnya
-              },
-              child: Text('Log Out'),
+              onPressed: () => _logout(context),
+              child: Text('Logout'),
             ),
           ],
         ),

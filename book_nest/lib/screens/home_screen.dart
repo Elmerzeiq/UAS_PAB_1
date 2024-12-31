@@ -1,6 +1,6 @@
 import 'package:book_nest/screens/detail_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:shared_preferences/shared_preferences.dart';
+// import 'package:shared_preferences/shared_preferences.dart';
 import 'package:book_nest/data/home_data.dart';
 import 'package:book_nest/models/home.dart';
 
@@ -12,13 +12,13 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  Future<void> _logout(BuildContext context) async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    await prefs.remove('isLoggedIn');
-    await prefs.remove('email');
-    // Navigator.pushReplacementNamed(
-    //     context, '/login'); // Pastikan rute ini sesuai
-  }
+  // Future<void> _logout(BuildContext context) async {
+  //   SharedPreferences prefs = await SharedPreferences.getInstance();
+  //   await prefs.remove('isLoggedIn');
+  //   await prefs.remove('email');
+  //   // Navigator.pushReplacementNamed(
+  //   //     context, '/login'); // Pastikan rute ini sesuai
+  // }
 
   @override
   Widget build(BuildContext context) {
