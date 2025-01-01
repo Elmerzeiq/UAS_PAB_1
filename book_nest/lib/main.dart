@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:book_nest/screens/login_screen.dart';
 import 'package:book_nest/screens/main_screen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:book_nest/data/user_data.dart'; // Import user_data.dart
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -13,9 +12,6 @@ void main() async {
   bool isLoggedIn = username != null;
 
   // Set currentUser sesuai dengan username yang login
-  if (isLoggedIn) {
-    currentUser = userList.firstWhere((user) => user.username == username);
-  }
 
   runApp(MyApp(isLoggedIn: isLoggedIn));
 }

@@ -1,20 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:book_nest/data/user_data.dart'; // Import the user data file
 
 class ProfileScreen extends StatefulWidget {
   @override
-  
   _ProfileScreenState createState() => _ProfileScreenState();
 }
 
 class _ProfileScreenState extends State<ProfileScreen> {
-  // Fungsi logout yang akan memanggil Navigator untuk menuju halaman login
+
+  final user = userList[0];
+
   Future<void> _logout(BuildContext context) async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
-    await prefs.remove('isLoggedIn'); // Menghapus data login
-    await prefs.remove('email'); // Menghapus data email
+    await prefs.remove('isLoggedIn');
+    await prefs.remove('email');
 
-    // Setelah logout, arahkan ke halaman login
     Navigator.pushReplacementNamed(context, '/login');
   }
 
@@ -24,52 +25,97 @@ class _ProfileScreenState extends State<ProfileScreen> {
       appBar: AppBar(
         title: Text('Profile'),
         actions: [
-          // Tombol logout di AppBar
           IconButton(
             icon: Icon(Icons.exit_to_app),
             onPressed: () => _logout(context),
           ),
         ],
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            // Foto Profil dari folder images
-            CircleAvatar(
-              radius: 50,
-              backgroundImage: AssetImage('images/sikancil.jpg'), // Gambar dari folder images
+      body: Center(
+        child: Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: Container(
+            decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.circular(12),
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.grey.withOpacity(0.5),
+                  spreadRadius: 5,
+                  blurRadius: 7,
+                  offset: Offset(0, 3),
+                ),
+              ],
             ),
-            SizedBox(height: 20),
-            // Menampilkan teks statis untuk informasi pengguna
-            Text(
-              'Username: Admin_Booknest',
-              style: TextStyle(fontSize: 18),
+            padding: EdgeInsets.all(16.0),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                CircleAvatar(
+                  radius: 50,
+                  backgroundImage: AssetImage('images/sikancil.jpg'),
+                ),
+                SizedBox(height: 20),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Icon(Icons.person, color: Colors.blue),
+                        SizedBox(width: 8),
+                        Text(
+                          'User: ${user.username}',
+                          style: TextStyle(fontSize: 18),
+                        ),
+                      ],
+                    ),
+                    SizedBox(height: 10),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Icon(Icons.email, color: Colors.blue),
+                        SizedBox(width: 8),
+                        Text(
+                          'Email: ${user.email}',
+                          style: TextStyle(fontSize: 18),
+                        ),
+                      ],
+                    ),
+                    SizedBox(height: 10),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Icon(Icons.phone, color: Colors.blue),
+                        SizedBox(width: 8),
+                        Text(
+                          'Phone: ${user.phone}',
+                          style: TextStyle(fontSize: 18),
+                        ),
+                      ],
+                    ),
+                    SizedBox(height: 10),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Icon(Icons.location_on, color: Colors.blue),
+                        SizedBox(width: 8),
+                        Text(
+                          'Address: ${user.address}',
+                          style: TextStyle(fontSize: 18),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+                SizedBox(height: 20),
+                ElevatedButton(
+                  onPressed: () => _logout(context),
+                  child: Text('Logout'),
+                ),
+              ],
             ),
-            SizedBox(height: 10),
-            Text(
-              'Email: adminbooknest@gmail.com',
-              style: TextStyle(fontSize: 18),
-            ),
-            SizedBox(height: 10),
-            Text(
-              'Phone: 0822-8075-9989',
-              style: TextStyle(fontSize: 18),
-            ),
-            SizedBox(height: 10),
-            Text(
-              'Address: Jl. Rajawali',
-              style: TextStyle(fontSize: 18),
-            ),
-            SizedBox(height: 20),
-            // Tombol Logout di bawah
-            ElevatedButton(
-              onPressed: () => _logout(context),
-              child: Text('Logout'),
-            ),
-          ],
+          ),
         ),
       ),
     );
