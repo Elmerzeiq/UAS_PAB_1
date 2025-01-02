@@ -8,7 +8,6 @@ class ProfileScreen extends StatefulWidget {
 }
 
 class _ProfileScreenState extends State<ProfileScreen> {
-
   final user = userList[0];
 
   Future<void> _logout(BuildContext context) async {
@@ -53,7 +52,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
               children: [
                 CircleAvatar(
                   radius: 50,
-                  backgroundImage: AssetImage('images/booknest.jpg'),
+                  backgroundImage: AssetImage('images/profil.png'),
                 ),
                 SizedBox(height: 20),
                 Column(
