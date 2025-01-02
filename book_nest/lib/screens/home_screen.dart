@@ -24,8 +24,8 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Book Nest'),
-        centerTitle: true,
+        title: const Text('Home Screen'),
+        centerTitle: false,
         automaticallyImplyLeading: false, // Menonaktifkan logo panah
       ),
       body: SafeArea(

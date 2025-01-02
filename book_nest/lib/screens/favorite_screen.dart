@@ -31,7 +31,7 @@ class _FavoriteScreenState extends State<FavoriteScreen> {
   }
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Favorite')),
+      appBar: AppBar(title: const Text('My Favorite Books')),
       body: SafeArea(
         child: SingleChildScrollView(
           child: Column(
