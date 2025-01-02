@@ -10,6 +10,8 @@ class RegisterScreen extends StatefulWidget {
 class _RegisterScreenState extends State<RegisterScreen> {
   final TextEditingController _username = TextEditingController();
   final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _phone = TextEditingController();
+  final TextEditingController _address = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
   final TextEditingController _confirmPasswordController =
       TextEditingController();
@@ -45,6 +47,33 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 decoration: const InputDecoration(
                   border: OutlineInputBorder(),
                   labelText: 'Email',
+                  contentPadding: EdgeInsets.symmetric(
+                    vertical: 10, // Tinggi field lebih kecil
+                    horizontal: 12,
+                  ),
+                ),
+              ),
+              const SizedBox(height: 16),
+              // address field
+              TextField(
+                controller: _address,
+                decoration: const InputDecoration(
+                  border: OutlineInputBorder(),
+                  labelText: 'Address',
+                  contentPadding: EdgeInsets.symmetric(
+                    vertical: 10, // Tinggi field lebih kecil
+                    horizontal: 12,
+                  ),
+                ),
+              ),
+              const SizedBox(height: 16),
+
+              //phone field
+              TextField(
+                controller: _phone,
+                decoration: const InputDecoration(
+                  border: OutlineInputBorder(),
+                  labelText: 'Phone',
                   contentPadding: EdgeInsets.symmetric(
                     vertical: 10, // Tinggi field lebih kecil
                     horizontal: 12,
