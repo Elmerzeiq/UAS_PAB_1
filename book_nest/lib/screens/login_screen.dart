@@ -78,6 +78,7 @@ class _LoginScreenState extends State<LoginScreen> {
               ),
               const SizedBox(height: 16),
               // Link Register
+
               TextButton(
                 onPressed: () {
                   Navigator.push(
@@ -109,6 +110,27 @@ class _LoginScreenState extends State<LoginScreen> {
                         ),
                       ),
                     ],
+                  ),
+                ),
+              ),
+              const SizedBox(height: 8),
+              TextButton(
+                onPressed: () {
+                  // Aksi untuk forgot password (misalnya hanya placeholder)
+                },
+                style: TextButton.styleFrom(
+                  padding: EdgeInsets.zero,
+                  minimumSize: Size.zero,
+                  tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                  alignment: Alignment.centerLeft,
+                ),
+                child: RichText(
+                  text: const TextSpan(
+                    text: 'Forgot Password',
+                    style: TextStyle(
+                      color: Colors.red, // Warna merah untuk menarik perhatian
+                      decoration: TextDecoration.underline, // Garis bawah
+                    ),
                   ),
                 ),
               ),
