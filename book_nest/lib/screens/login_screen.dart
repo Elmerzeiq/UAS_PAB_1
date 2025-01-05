@@ -128,6 +128,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   text: const TextSpan(
                     text: 'Forgot Password',
                     style: TextStyle(
+                      fontSize: 10,
                       color: Colors.red, // Warna merah untuk menarik perhatian
                       decoration: TextDecoration.underline, // Garis bawah
                     ),
