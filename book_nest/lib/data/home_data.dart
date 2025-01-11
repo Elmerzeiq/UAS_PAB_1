@@ -171,6 +171,4 @@ var homeList = [
         'https://www.google.co.id/books/edition/Bumi_Manusia/9DA5DwAAQBAJ?hl=id&gbpv=1&dq=bumi+manusia&printsec=frontcover',
     edisi: 'Pertama',
   ),
-  
-
 ];
