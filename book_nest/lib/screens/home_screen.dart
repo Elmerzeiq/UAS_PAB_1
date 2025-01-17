@@ -1,6 +1,6 @@
 import 'package:book_nest/screens/detail_screen.dart';
 import 'package:flutter/material.dart';
-// import 'package:shared_preferences/shared_preferences.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:book_nest/data/home_data.dart';
 import 'package:book_nest/models/home.dart';
 
@@ -12,13 +12,39 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  // Future<void> _logout(BuildContext context) async {
-  //   SharedPreferences prefs = await SharedPreferences.getInstance();
-  //   await prefs.remove('isLoggedIn');
-  //   await prefs.remove('email');
-  //   // Navigator.pushReplacementNamed(
-  //   //     context, '/login'); // Pastikan rute ini sesuai
-  // }
+  List<Home> _filteredBooks = homeList; // Awalnya semua buku ditampilkan
+  TextEditingController _searchController = TextEditingController();
+
+  @override
+  void initState() {
+    super.initState();
+
+    // Tambahkan listener untuk memperbarui hasil pencarian saat teks berubah
+    _searchController.addListener(() {
+      setState(() {
+        if (_searchController.text.isEmpty) {
+          // Jika teks pencarian kosong, tampilkan semua buku
+          _filteredBooks = homeList;
+        } else {
+          // Filter daftar buku berdasarkan judul atau penulis
+          _filteredBooks = homeList.where((book) {
+            return book.judul
+                    .toLowerCase()
+                    .contains(_searchController.text.toLowerCase()) ||
+                book.penulis
+                    .toLowerCase()
+                    .contains(_searchController.text.toLowerCase());
+          }).toList();
+        }
+      });
+    });
+  }
+
+  @override
+  void dispose() {
+    _searchController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -29,12 +55,25 @@ class _HomeScreenState extends State<HomeScreen> {
         automaticallyImplyLeading: false, // Menonaktifkan logo panah
       ),
       body: SafeArea(
-        child: SingleChildScrollView(
-          child: Column(
-            children: [
-              GridView.builder(
+        child: Column(
+          children: [
+            // Search bar
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: TextField(
+                controller: _searchController,
+                decoration: InputDecoration(
+                  labelText: 'Search by title or author',
+                  border: OutlineInputBorder(),
+                  prefixIcon: Icon(Icons.search),
+                ),
+              ),
+            ),
+            // GridView buku
+            Expanded(
+              child: GridView.builder(
                 shrinkWrap: true,
-                physics: const NeverScrollableScrollPhysics(),
+                physics: const AlwaysScrollableScrollPhysics(),
                 gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 2,
                   crossAxisSpacing: 8,
@@ -42,9 +81,9 @@ class _HomeScreenState extends State<HomeScreen> {
                   childAspectRatio: 1280 / 1962,
                 ),
                 padding: const EdgeInsets.all(8),
-                itemCount: homeList.length,
+                itemCount: _filteredBooks.length,
                 itemBuilder: (context, index) {
-                  Home varHome = homeList[index];
+                  Home varHome = _filteredBooks[index];
                   return InkWell(
                     onTap: () {
                       Navigator.push(
@@ -99,8 +138,8 @@ class _HomeScreenState extends State<HomeScreen> {
                   );
                 },
               ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );
