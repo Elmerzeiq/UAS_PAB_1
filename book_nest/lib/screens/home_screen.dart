@@ -69,6 +69,23 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
               ),
             ),
+            // Judul Rekomendasi Buku Anda
+            Padding(
+              padding:
+                  const EdgeInsets.symmetric(vertical: 8.0, horizontal: 16.0),
+              child: Align(
+                alignment: Alignment.centerLeft,
+                child: Text(
+                  "Rekomendasi Buku Anda",
+                  style: TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+            ),
+          
+
             // GridView buku
             Expanded(
               child: GridView.builder(
