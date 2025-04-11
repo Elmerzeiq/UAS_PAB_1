@@ -112,6 +112,11 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   onPressed: () => _logout(context),
                   child: Text('Logout'),
                 ),
+                const SizedBox(height: 16),
+                ElevatedButton(
+                  onPressed: () => _logout(context),
+                  child: Text('Edit Profile'),
+                ),
               ],
             ),
           ),

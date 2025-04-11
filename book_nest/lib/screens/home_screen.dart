@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:book_nest/data/home_data.dart';
 import 'package:book_nest/models/home.dart';
+import 'package:book_nest/screens/add_book_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -70,21 +71,33 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
             ),
             // Judul Rekomendasi Buku Anda
+            // Judul Rekomendasi Buku Anda + Ikon Tambah
             Padding(
               padding:
                   const EdgeInsets.symmetric(vertical: 8.0, horizontal: 16.0),
-              child: Align(
-                alignment: Alignment.centerLeft,
-                child: Text(
-                  "Rekomendasi Buku Anda",
-                  style: TextStyle(
-                    fontSize: 18,
-                    fontWeight: FontWeight.bold,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    "Rekomendasi Buku Anda",
+                    style: TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
-                ),
+                  IconButton(
+                    icon: Icon(Icons.add_circle_outline),
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const AddBookScreen()),
+                      );
+                    },
+                  ),
+                ],
               ),
             ),
-          
 
             // GridView buku
             Expanded(

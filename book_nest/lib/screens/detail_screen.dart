@@ -299,6 +299,32 @@ class _DetailScreenState extends State<DetailScreen> {
                           ),
                         ),
                       ),
+                    const SizedBox(height: 16),
+                    if (widget.varHome.linkJurnal.isNotEmpty)
+                      ElevatedButton.icon(
+                        onPressed: () async {
+                          await _addToHistory(widget.varHome.judul);
+                          _launchURL(widget.varHome.linkJurnal);
+                        },
+                        icon: const Icon(Icons.book, color: Colors.white),
+                        label: const Text(
+                          'Download Buku',
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            color: Colors.white,
+                          ),
+                        ),
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: Colors.blue,
+                          padding: const EdgeInsets.symmetric(
+                            horizontal: 24,
+                            vertical: 12,
+                          ),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(16),
+                          ),
+                        ),
+                      ),
                   ],
                 ),
               ),
